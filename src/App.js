@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { ChakraProvider } from '@chakra-ui/react'
 
-function App() {
+import Timeline from './Timeline'
+import { Card } from './Card'
+import { CommentList } from './CommentList'
+
+export default function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ChakraProvider>
+      <Timeline>
+        {({ post }) => (
+          <Card post={post} key={post.id}>
+            <Card.Header author={post.user} />
+            <Card.Main content={post.content} />
+            <Card.Footer
+              author={post.user}
+              description={post.description}
+            >
+              <CommentList postId={post.id} />
+            </Card.Footer>
+          </Card>
+        )}
+      </Timeline>
+    </ChakraProvider>
+  )
 }
-
-export default App;

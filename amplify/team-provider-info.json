@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-renderatlworkshop-staging-155024-authRole",
+      "UnauthRoleArn": "arn:aws:iam::000691573582:role/amplify-renderatlworkshop-staging-155024-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::000691573582:role/amplify-renderatlworkshop-staging-155024-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-renderatlworkshop-staging-155024-deployment",
+      "UnauthRoleName": "amplify-renderatlworkshop-staging-155024-unauthRole",
+      "StackName": "amplify-renderatlworkshop-staging-155024",
+      "StackId": "arn:aws:cloudformation:us-east-1:000691573582:stack/amplify-renderatlworkshop-staging-155024/4fa51ee0-14aa-11ec-953c-0e11ae77edd7",
+      "AmplifyAppId": "dxzgfwbilq1fz"
+    }
+  }
+}

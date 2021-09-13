@@ -6,19 +6,26 @@ import Timeline from './Timeline'
 import { Card } from './Card'
 import { CommentList } from './CommentList'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 function App () {
+  const [user, setUser] = useState({})
+  const [isAdmin, setIsAdmin] = useState(false)
+
   useEffect(() => {
     const getUser = async () => {
       const user = await Auth.currentAuthenticatedUser()
-      console.log(user)
+      setUser(user)
+      setIsAdmin(user.signInUserSession.accessToken.payload['cognito:groups'].includes('admin'))
     }
 
     getUser()
   }, [])
   return (
     <ChakraProvider>
+      <button onClick={async () => await Auth.signOut()}>
+        Sign Out
+      </button>
       <Timeline>
         {({ post }) => (
           <Card post={post} key={post.id}>

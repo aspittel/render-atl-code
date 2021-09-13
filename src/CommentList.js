@@ -4,7 +4,7 @@ import { Box, Text } from '@chakra-ui/react'
 
 import { Comment } from './models'
 
-export function CommentList ({ postId }) {
+export function CommentList ({ postId, isAdmin }) {
   const [comments, setComments] = useState([])
   useEffect(() => {
     const getComments = async () => {
@@ -21,6 +21,12 @@ export function CommentList ({ postId }) {
             <Text as='b'>{comment.user.username} </Text>
             {comment.body}
           </Text>
+          {isAdmin && <button onClick={async () => {
+            const modelToDelete = await DataStore.query(Comment, comment.id)
+            DataStore.delete(modelToDelete)
+          }}>
+            delete
+          </button>}
         </Text>
       ))}
     </Box>

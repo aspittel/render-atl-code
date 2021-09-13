@@ -35,7 +35,7 @@ function App () {
               author={post.user}
               description={post.description}
             >
-              <CommentList postId={post.id} />
+              <CommentList postId={post.id} isAdmin={isAdmin} />
             </Card.Footer>
           </Card>
         )}

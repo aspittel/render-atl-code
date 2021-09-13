@@ -8,7 +8,7 @@ export function CommentList ({ postId }) {
   const [comments, setComments] = useState([])
   useEffect(() => {
     const getComments = async () => {
-      const postComments = await DataStore.query(Comment, p => p.timelineitemID === postId)
+      const postComments = await DataStore.query(Comment, p => p.timelineitemID('eq', postId))
       setComments(postComments)
     }
     getComments()

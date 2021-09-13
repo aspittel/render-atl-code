@@ -1,10 +1,22 @@
 import { ChakraProvider } from '@chakra-ui/react'
+import { withAuthenticator } from '@aws-amplify/ui-react'
+import { Auth } from 'aws-amplify'
 
 import Timeline from './Timeline'
 import { Card } from './Card'
 import { CommentList } from './CommentList'
 
-export default function App () {
+import { useEffect } from 'react'
+
+function App () {
+  useEffect(() => {
+    const getUser = async () => {
+      const user = await Auth.currentAuthenticatedUser()
+      console.log(user)
+    }
+
+    getUser()
+  }, [])
   return (
     <ChakraProvider>
       <Timeline>
@@ -24,3 +36,5 @@ export default function App () {
     </ChakraProvider>
   )
 }
+
+export default withAuthenticator(App)

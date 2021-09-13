@@ -10,6 +10,11 @@
       "StackName": "amplify-renderatlworkshop-staging-155024",
       "StackId": "arn:aws:cloudformation:us-east-1:000691573582:stack/amplify-renderatlworkshop-staging-155024/4fa51ee0-14aa-11ec-953c-0e11ae77edd7",
       "AmplifyAppId": "dxzgfwbilq1fz"
+    },
+    "categories": {
+      "auth": {
+        "renderatlworkshop": {}
+      }
     }
   }
 }
